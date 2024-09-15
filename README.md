@@ -1,6 +1,9 @@
 # Self-service Platform (SSP) Bastion Module
 
 ## Summary
+
+This module was built to create a bastion host that provides a consistent environment for building and managing the infrastructure for running an Enterprise SW. 
+
 This module does these steps:
 * Brings up a Bastion host on well-known providers like Proxmox and public cloud (TBD). 
 * Installs terraform executable on the bastion host
