@@ -1,4 +1,4 @@
-resource "proxmox_virtual_environment_vm" "var.proxmox_bastion_host_name" {
+resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.proxmox_bastion_host_name
   node_name = var.proxmox_node_name
 
