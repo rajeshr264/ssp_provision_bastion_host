@@ -1,3 +1,8 @@
+data "local_file" "bastion_host_public_key_filename" {
+  filename = var.bastion_host_public_key_filename
+}
+
+
 resource "proxmox_virtual_environment_vm" "vm" {
   name      = var.proxmox_bastion_host_name
   node_name = var.proxmox_node_name
@@ -12,7 +17,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
     user_account {
       username = var.bastion_host_username
-      keys     = [trimspace(var.bastion_host_public_key_filename.content)]
+      keys     = [trimspace(data.bastion_host_public_key_filename.content)]
       password = var.bastion_host_password
     }
   }
