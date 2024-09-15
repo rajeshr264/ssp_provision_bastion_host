@@ -9,3 +9,13 @@ terraform {
     }
   }
 }
+
+provider "proxmox" {
+  endpoint = var.proxmox_host_endpoint
+  username = var.proxmox_host_username
+  password = var.proxmox_host_password
+  insecure = true  # Set to false in production
+  ssh {
+    agent = true
+  }
+}

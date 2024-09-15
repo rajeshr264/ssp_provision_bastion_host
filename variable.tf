@@ -39,3 +39,22 @@ variable "proxmox_network_bridge_name" {
   type        = string
   default     = "vmbr0"
 } 
+
+
+variable "proxmox_host_endpoint" {
+  description = "Endpoint of the proxmox host"
+  type        = string
+  sensitive   = true
+}
+
+variable "proxmox_host_username" {
+  description = "Username to log in to the proxmox host"
+  type        = string
+  sensitive   = true
+}
+
+variable "proxmox_host_password" {
+  description = "Password to log in to the proxmox host"
+  type        = string
+  sensitive   = true
+}
