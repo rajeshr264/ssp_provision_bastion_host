@@ -13,7 +13,7 @@ This module does these steps:
 
 ## Usage:
 * This module is meant to be run from your laptop.
-* Install [Terraform](https://developer.hashicorp.com/terraform/install) 
+* Install [Terraform](https://developer.hashicorp.com/terraform/install). On Windows, you can install in the native terminal or on WSL/Ubuntu.
 * Create a work directory
 * Add this module as a dependency. 
 * Create the parameters file to contain user-defined inputs
