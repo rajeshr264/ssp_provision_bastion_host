@@ -17,7 +17,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
     user_account {
       username = var.bastion_host_username
-      keys     = [trimspace(data.bastion_host_public_key_filename.content)]
+      keys     = [trimspace(data.local_file.bastion_host_public_key_filename.content)]
       password = var.bastion_host_password
     }
   }
