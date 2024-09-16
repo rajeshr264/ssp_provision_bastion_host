@@ -44,7 +44,7 @@ variable "proxmox_network_bridge_name" {
 variable "proxmox_host_endpoint" {
   description = "Endpoint of the proxmox host"
   type        = string
-  sensitive   = true
+  //sensitive   = true
 }
 
 variable "proxmox_host_username" {

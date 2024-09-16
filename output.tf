@@ -1,3 +1,4 @@
 output "dhcp_ip" {
-  value = proxmox_virtual_environment_vm.vm.ipv4_addresses[1]
+  value = proxmox_virtual_environment_vm.vm.ipv4_addresses[1][0]
 }
+
