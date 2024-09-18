@@ -1,0 +1,16 @@
+---
+parameters:
+  targets:
+    type: TargetSpec
+    description: "The targets to run on"
+steps:
+  - plan: reboot 
+    parameters:
+      reconnect_timeout: 120 
+    targets: $targets
+  - task: ssp_provision_bastion_host::setup_bastion_host_ubuntu2204
+    targets: $targets
+  - plan: reboot 
+    parameters:
+      reconnect_timeout: 120 
+    targets: $targets

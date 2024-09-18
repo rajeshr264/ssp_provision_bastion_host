@@ -17,6 +17,12 @@ variable "bastion_host_public_key_filename" {
   sensitive   = true
 }
 
+variable "bastion_host_private_key_filename" {
+  description = "The filename for the private key for the bastion host"
+  type        = string
+  sensitive   = true
+}
+
 variable "proxmox_machine_image_template_id" {
   description = "ID of the Machine image template in Proxmox "
   type        = string

@@ -36,3 +36,19 @@ resource "proxmox_virtual_environment_vm" "vm" {
     bridge = var.proxmox_network_bridge_name
   }
 }
+
+# Run a local post-install script that checks if the bastion host is up and running
+resource "null_resource" "check_bastion_host_ready" {
+  provisioner "local-exec" {
+    command = "${path.module}/scripts/check_bastion_host_ready.sh ${proxmox_virtual_environment_vm.vm.ipv4_addresses[1][0]} ${var.bastion_host_private_key_filename} ${var.bastion_host_username}"
+  }
+  depends_on = [proxmox_virtual_environment_vm.vm]
+}
+
+# Run a local post-install script that checks if the bastion host is up and running
+resource "null_resource" "setup_bastion" {
+  provisioner "local-exec" {
+    command = "bolt plan run ssp_provision_bastion_host::setup_bastion -i ./bastion_inventory.yaml -t bastion"
+  }
+  depends_on = [null_resource.check_bastion_host_ready]
+}
